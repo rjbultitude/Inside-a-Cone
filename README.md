@@ -1,10 +1,10 @@
 # Inside a cone 
 
 ## Info
-Click to the right of the canvas to decrease the number of nodes (and increase their size)
-Click to the left of the canvas to increase the number of nodes (and decrease their size) - be careful as too many will slow your processor down :]
+Made using P5.js this canvas sketch creates a set of rectangles which are arranged and animated in a way which creates the illusion of being inside a cone-shaped object.
 
-Made using P5.js this canvas sketch moves a grid of circles from left to right shrinking each one once it passes a certain point whilst they are attracted to the vertical centre at different rates using perlin noise.
+Use the "more" and "less" to add or remove sets of strands
+Be careful not to add too many else you may slow your processor down.
 
 ## References
 
