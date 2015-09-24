@@ -1,7 +1,7 @@
 # Inside a cone 
 
 ##Live demo
-[Live demo on github pages](http://rjbultitude.github.io/Node-Compressor/)
+[Live demo on github pages](http://rjbultitude.github.io/Inside-a-Cone/)
 
 ## Info
 Made using P5.js this canvas sketch creates a set of rectangles which are arranged and animated in a way which creates the illusion of being inside a cone-shaped object.
