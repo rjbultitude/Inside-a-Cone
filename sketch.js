@@ -3,7 +3,7 @@ var myCanvas;
 var num = 150;
 var twidth = 12;
 var swing = 2;
-var noiseStart = 0.1; //TODO
+var noiseStart = 0.1;
 var removedLines = [];
 
 function Longline(startX, startY, endX, endY, end2X, end2Y) {
@@ -57,10 +57,8 @@ function createLineArr(newNum) {
 		else {
 			separator = num/10;
 		}
-		//separator = 1;
 
-		//failed spiral logic
-		//innerRadius += 0.5;
+		//Cone shape logic
 		var startX = sin(i * separator) * innerRadius + (width/2);
 		var startY = cos(i * separator) * innerRadius + (width/2) - innerRadius * 2;
 		var endX = sin(i * separator) * outerRadius + height/2;
