@@ -7,7 +7,7 @@ Use the "more" and "less" to add or remove sets of strands
 Be careful not to add too many else you may slow your processor down.
 
 ## Live demo
-[Live demo on github pages](http://rjbultitude.github.io/Inside-a-Cone/)
+[Live demo on github pages](https://rjbultitude.github.io/Inside-a-Cone/)
 
 ## References
 
