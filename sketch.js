@@ -89,7 +89,7 @@ subBtn.addEventListener('click', function() {
 });
 
 function setup() {
-	myCanvas = createCanvas(800,600);
+	myCanvas = createCanvas(1024,576);
 	myCanvas.parent('canvas-container');
 	background(0,0,0);
 	createLineArr();
