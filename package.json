@@ -1,0 +1,22 @@
+{
+  "name": "inside-a-cone",
+  "version": "1.0.0",
+  "description": "## Info Made using P5.js this canvas sketch creates a set of rectangles which are arranged and animated in a way which creates the illusion of being inside a cone-shaped object.",
+  "main": "sketch.js",
+  "scripts": {
+    "start": "http-server -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjbultitude/Inside-a-Cone.git"
+  },
+  "author": "Richard Bultitude",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rjbultitude/Inside-a-Cone/issues"
+  },
+  "homepage": "https://github.com/rjbultitude/Inside-a-Cone#readme",
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}

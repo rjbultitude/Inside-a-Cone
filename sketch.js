@@ -1,43 +1,46 @@
-var longlineArr = [];
-var myCanvas;
-var num = 150;
-var twidth = 12;
-var swing = 2;
-var noiseStart = 0.1;
-var removedLines = [];
+const longlineArr = [];
+let myCanvas;
+let num = 150;
+let twidth = 12;
+let swing = 2;
+let noiseStart = 0.1;
+let removedLines = [];
 
-function Longline(startX, startY, endX, endY, end2X, end2Y) {
-	this.startX = startX;
-	this.startY = startY;
-	this.endX = endX;
-	this.endY = endY;
-	this.end2X = end2X;
-	this.end2Y = end2Y;
-	this.colour = color(random(100,255), random(0,255), random(50,255), 255);
+class Longline {
+  constructor(startX, startY, endX, endY, end2X, end2Y) {
+    this.startX = startX;
+    this.startY = startY;
+    this.endX = endX;
+    this.endY = endY;
+    this.end2X = end2X;
+    this.end2Y = end2Y;
+    this.colour = color(random(100,255), random(0,255), random(50,255), 255);
+  }
+
+  paint() {
+    fill(this.colour);
+    noStroke();
+    triangle(this.endX, this.endY, this.startX, this.startY, this.end2X, this.end2Y);
+  }
+
+  update() {
+    const prevEndX = this.endX;
+    const prevEndY = this.endY;
+    const prevEnd2X = this.end2X;
+    const prevEnd2Y = this.end2Y;
+
+    noiseStart += 0.1;
+
+    const angle = frameCount/50;
+    const swingAmt = noise(noiseStart) * 10;
+
+    this.endX = prevEndX + sin(angle) * swingAmt;
+    this.endY = prevEndY + cos(angle) * swingAmt;
+    this.end2X = prevEnd2X + sin(angle) * swingAmt;
+    this.end2Y = prevEnd2Y + cos(angle) * swingAmt;
+  }
 }
 
-Longline.prototype.paint = function() {
-	fill(this.colour);
-	noStroke();
-	triangle(this.endX, this.endY, this.startX, this.startY, this.end2X, this.end2Y);
-}
-
-Longline.prototype.update = function() {
-	var prevEndX = this.endX;
-	var prevEndY = this.endY;
-	var prevEnd2X = this.end2X;
-	var prevEnd2Y = this.end2Y;
-
-	noiseStart += 0.1;
-
-	var angle = frameCount/50;
-	var swingAmt = noise(noiseStart) * 10;
-
-	this.endX = prevEndX + sin(angle) * swingAmt;
-	this.endY = prevEndY + cos(angle) * swingAmt;
-	this.end2X = prevEnd2X + sin(angle) * swingAmt;
-	this.end2Y = prevEnd2Y + cos(angle) * swingAmt;
-}
 
 function createLineArr(newNum) {
 	if (newNum !== undefined) {
@@ -45,12 +48,12 @@ function createLineArr(newNum) {
 	}
 
 	//spiral logic
-	var innerRadius = 50;
-	var outerRadius = 700;
-	var separator;
-	var triangleWidth = twidth;
+	const innerRadius = 50;
+	const outerRadius = 700;
+	let separator;
+	const triangleWidth = twidth;
 
-	for (var i = 0; i < num; i++) {
+	for (let i = 0; i < num; i++) {
 		if (num >= 48) {
 			separator = num/360;
 		}
@@ -59,21 +62,21 @@ function createLineArr(newNum) {
 		}
 
 		//Cone shape logic
-		var startX = sin(i * separator) * innerRadius + (width/2);
-		var startY = cos(i * separator) * innerRadius + (width/2) - innerRadius * 2;
-		var endX = sin(i * separator) * outerRadius + height/2;
-		var endY = cos(i * separator) * outerRadius + height/2;
-		var end2X = sin(i * separator) * outerRadius + height/2 + triangleWidth;
-		var end2Y = cos(i * separator) * outerRadius + height/2 + triangleWidth;
-		var newLongline = new Longline(startX, startY, endX, endY, end2X, end2Y);
+		const startX = sin(i * separator) * innerRadius + (width/2);
+		const startY = cos(i * separator) * innerRadius + (width/2) - innerRadius * 2;
+		const endX = sin(i * separator) * outerRadius + height/2;
+		const endY = cos(i * separator) * outerRadius + height/2;
+		const end2X = sin(i * separator) * outerRadius + height/2 + triangleWidth;
+		const end2Y = cos(i * separator) * outerRadius + height/2 + triangleWidth;
+		const newLongline = new Longline(startX, startY, endX, endY, end2X, end2Y);
 		longlineArr.push(newLongline);
 	}
 }
 
 //controls
-var addBtn = document.getElementById('add');
-var subBtn = document.getElementById('subtract');
-var amt = 20;
+const addBtn = document.getElementById('add');
+const subBtn = document.getElementById('subtract');
+const amt = 20;
 
 addBtn.addEventListener('click', function() {
 	if (removedLines.length > 0) {
