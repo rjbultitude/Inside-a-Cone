@@ -86,6 +86,7 @@ addBtn.addEventListener('click', function() {
 		createLineArr(amt);
 	}
 });
+
 subBtn.addEventListener('click', function() {
 	removedLines = longlineArr.splice(0, amt);
 	console.log(removedLines.length);
